@@ -7,6 +7,14 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         required: [true, 'User name is required to register a user'],  
     },
+    firstname: {
+        type: String, 
+        // required: [true, 'User name is required to register a user'],  
+    },
+    lastname: {
+        type: String, 
+        // required: [true, 'User name is required to register a user'],  
+    },
     email: { 
         type: String, 
         unique: true,

@@ -1,0 +1,44 @@
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  width: 100vw;
+
+  a {
+    margin-right: 1rem;
+  }
+}
+
+// [top] #navbar-ul
+#navbar-ul {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(197, 197, 197);
+  }
+}
+// [end] #navbar-ul
