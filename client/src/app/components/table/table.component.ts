@@ -10,17 +10,18 @@ export class TableComponent implements OnInit, OnChanges{
   title: any;
 
   @Input()
-  tableData: any;
+  tableData: Array<any> = [];
   tableHeaders: string[] = [];
 
   ngOnInit(): void {
-    if( this.tableData.length )
+    if( typeof this.tableData[0] === 'object')
       this.tableHeaders = Object.keys(this.tableData[0]);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( this.tableData.length && changes['tableData'] )
+    if( typeof this.tableData[0] === 'object' && changes['tableData'] ) {
       this.tableHeaders = Object.keys(this.tableData[0]);
+    }
   }
 
 
