@@ -1,0 +1,21 @@
+table {
+  margin: 1rem auto;
+  border-collapse: collapse;
+
+  caption {
+    font-weight: 700;
+    border: 1px solid;
+    border-bottom: none;
+
+    background-color: rgb(246, 246, 197);
+  }
+
+  th {
+    background-color: rgb(194, 193, 193);
+    text-align: center;
+  }
+
+  th, td {
+    border: 1px solid black;
+  }
+}
