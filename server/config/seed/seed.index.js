@@ -1,19 +1,31 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 const { MONGO_URI } = process.env;
 
-// [ UTILS ]
-
 // [ MODELS ]
+const { User } = require('../../models/index.model');
+
+// [ UTILS ]
+const { generateUsers } = require('./User/User.seed');
+
 
 async function run() {
     try {
         mongoose.connect(MONGO_URI);
         console.log('Seed connected to DB');
 
-        /*
         // [ DB RESET ]
         if( await User.collection ) await User.collection.drop();
-        */
+        
+        // [ USERS ]
+        const userCount = 10, adminCount = 3;
+        const userList = await generateUsers(userCount, adminCount);
+        for( let i=0; i<userList.length; i++ ) {
+            const user = userList[i];
+            const newUser = await User.create({ ...user });
+            console.log({newUser});
+            await newUser.save();
+        }
 
         console.log( `Seed completed` );
     } catch(error) {
