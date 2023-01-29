@@ -23,7 +23,6 @@ async function run() {
         for( let i=0; i<userList.length; i++ ) {
             const user = userList[i];
             const newUser = await User.create({ ...user });
-            console.log({newUser});
             await newUser.save();
         }
 

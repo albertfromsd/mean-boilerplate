@@ -4,18 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableComponent } from './components/table/table.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './views/home/home.component';
+import { userReducer } from './store/user/user.reducer';
+import { UserTableComponent } from './views/user-table/user-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TableComponent,
-    HomeComponent
+    HomeComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +27,14 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule,
-    // StoreModule.forRoot({ user: userReducer, data: dataReducer }),
+    StoreModule.forRoot({
+      user: userReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      name: 'MEAN Boiler Plate',
+      // logOnly value should be changed to false during production
+      logOnly: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

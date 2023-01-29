@@ -18,6 +18,20 @@ async function userGet( req, res ) {
     }
 }
 
+async function userGetAll( req, res ) {
+    try {
+        const users = await User.find().select('-password');
+
+        return res.status(200).json(users);
+    } catch(err) {
+        return res.status(500).json({
+            status: 500, 
+            message: "Server error", 
+            error: err
+        });
+    }
+}
+
 async function userRegister( req, res ) {
 
 }
@@ -37,6 +51,7 @@ async function userLogout( req, res ) {
 // consistent exports
 module.exports = {
     userGet,
+    userGetAll,
     userRegister,
     userLogin,
     userEdit,
