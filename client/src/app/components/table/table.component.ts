@@ -6,11 +6,8 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit, OnChanges{
-  @Input()
-  title: any;
-
-  @Input()
-  tableData: Array<any> = [];
+  @Input() title: any;
+  @Input() tableData: Array<any> = [];
   tableHeaders: string[] = [];
 
   ngOnInit(): void {
@@ -19,10 +16,7 @@ export class TableComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( typeof this.tableData[0] === 'object' && changes['tableData'] ) {
+    if( typeof this.tableData[0] === 'object' && changes['tableData'] )
       this.tableHeaders = Object.keys(this.tableData[0]);
-    }
   }
-
-
 }
