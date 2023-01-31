@@ -27,6 +27,7 @@ export class UserService {
 
       for( let i=0; i<res.length; i++ ) {
         const user: User = {
+          _id: res[i]._id,
           username: res[i].username,
           firstname: res[i].firstname,
           lastname: res[i].lastname,
@@ -52,6 +53,20 @@ export class UserService {
       },
       (err: any) => {
         console.log('userService createUser error: ', err.error.message)
+        this.rootAppService.setAppMessage(err.error.message);
+      }
+    )
+  }
+
+  deleteUser(_id: string): void {
+    this.http.delete(`${this.url}/delete/${_id}`).subscribe(
+      (res: any) => {
+        this.setAllUsers();
+        this.rootAppService.setAppMessage(
+          `User successfully deleted at ${new Date().toLocaleTimeString()}`
+        );
+      },
+      (err: any) => {
         this.rootAppService.setAppMessage(err.error.message);
       }
     )
