@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of this.tableData">
-      <td *ngFor="let key of this.tableHeaders">{{row[key]}}</td>
+      <td *ngFor="let key of this.tableHeaders"><span *ngIf="key !== '_id'">{{row[key]}}</span></td>
       <td>
-        <button (click)="delete(row._id)">Delete {{row._id}}</button>
+        <button class="btn-warning" (click)="delete(row._id)">Delete</button>
       </td>
     </tr>
   </tbody>

@@ -24,7 +24,7 @@ export class TableComponent implements OnInit, OnChanges{
         && typeof this.tableData[0] === 'object'
         && changes['tableData']
     ) {
-      this.tableHeaders = Object.keys(this.tableData[0]);
+      this.tableHeaders = Object.keys(this.tableData[0]).filter( header => header !== '_id' );
     }
     console.log('tablecomponent tabledata', this.tableData)
   }
