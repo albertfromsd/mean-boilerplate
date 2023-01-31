@@ -8,15 +8,17 @@ module.exports.generateUsers = async (userCount, adminCount) => {
     let userList = [];
     try {
         for( let i=0; i<userCount; i++ ) {
+            username = i<adminCount ? `admin-${i}` : `user-${i}`;
+            email = i<adminCount ? `admin${i}@test.com` : `user-${i}@test.com`;
+            admin = i<adminCount ? true : false;
+            teacherAdmin = i<adminCount ? true : false;
+            
             const user = {
-                username: `user-${i}`,
-                email: `user-${i}@test.com`,
+                username, email, admin, teacherAdmin,
                 firstname: firstnameList[getRandomInt(0, firstnameList.length)],
                 lastname: lastnameList[getRandomInt(0, lastnameList.length)],
                 password:`User${i}!pw123`,
-                admin: i < adminCount
-                    ? true
-                    : false
+                
             }
             user.password = await bcrypt.hash(user.password, saltRounds);
             userList.push(user);

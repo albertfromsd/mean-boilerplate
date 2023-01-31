@@ -23,12 +23,23 @@ const UserSchema = new mongoose.Schema({
     },
     password: { 
         type: String,
+        // required: [true, 'Password is required to register user'],
         required: [false, 'Password is required to register user'],
+    },
+    admin: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
+    teacherAdmin: {
+        type: Boolean,
+        required: false,
+        default: false
     },
     reference_id: {
         type: objectID, 
         ref: "Model",
-        required: false
+        required: false,
     }
 }, {timestamps: true});
 

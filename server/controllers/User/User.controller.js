@@ -23,11 +23,11 @@ async function userGetAll( req, res ) {
         const users = await User.find().select('-password');
 
         return res.status(200).json(users);
-    } catch(err) {
+    } catch(error) {
         return res.status(500).json({
             status: 500, 
             message: "Server error", 
-            error: err
+            error
         });
     }
 }
@@ -36,16 +36,23 @@ async function userRegister( req, res ) {
     console.log('server userRegister', req.body)
     try {
         const { username, firstname, lastname, email } = req.body;
+        const admin = req.body.admin ? req.body.admin : false;
+        const teacherAdmin = req.body.teacherAdmin ? req.body.teacherAdmin : false;
+        // uniqueness check
+        const usernameCheck = await User.findOne({username});
+        const emailCheck = await User.findOne({email});
+        if( usernameCheck || emailCheck ) 
+            return res.status(400).json({message: 'Account already exists'});
+        
         const newUser = await User.create({
-            username, firstname, lastname, email
+            username, firstname, lastname, email, admin, teacherAdmin
         });
         if( !newUser ) throw new Error(400);
-        await newUser.save();
 
         return res.status(200).json(newUser);
     } catch(error) {
         if( error.message === String('400') ) {
-            return res.status(400),json({message: 'Bad Request', error});
+            return res.status(400).json({message: 'Bad Request', error});
         } else {
             return res.status(500).json({message: 'Server Error', error});
         }
