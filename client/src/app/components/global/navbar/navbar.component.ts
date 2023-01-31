@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RootAppService } from '../../shared/services/root-app.service';
+import { RootAppService } from '../../../shared/services/root-app.service';
 
 @Component({
   selector: 'app-navbar',

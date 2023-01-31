@@ -13,13 +13,13 @@ import { appReducer } from './store/app/app.reducer';
 
 // [ Components/Views ]
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { TableComponent } from './components/table/table.component';
+import { NavbarComponent } from './components/global/navbar/navbar.component';
+import { TableComponent } from './components/user-app/table/table.component';
 import { HomeComponent } from './views/home/home.component';
 import { UserAppComponent } from './views/user-app/user-app.component';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
+import { SearchbarComponent } from './components/global/searchbar/searchbar.component';
+import { FooterComponent } from './components/global/footer/footer.component';
+import { UserFormComponent } from './components/user-app/user-form/user-form.component';
 
 @NgModule({
   declarations: [
