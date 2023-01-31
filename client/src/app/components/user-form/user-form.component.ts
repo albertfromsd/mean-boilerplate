@@ -15,10 +15,10 @@ export class UserFormComponent implements OnInit{
   ) {}
 
   userForm: FormGroup = this.fb.nonNullable.group({
-    username: ['', Validators.required],
-    firstname: ['', Validators.required],
-    lastname: ['', Validators.required],
-    email: ['', Validators.required]
+    username: ['a', Validators.required],
+    firstname: ['a', Validators.required],
+    lastname: ['a', Validators.required],
+    email: ['a', Validators.required]
   });
 
   ngOnInit(): void {

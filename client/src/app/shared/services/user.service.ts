@@ -42,16 +42,18 @@ export class UserService {
     return this.store.select(selectUserAll);
   }
 
-  createUser(user: User) {
-    console.log('service create user: ', {user})
-    this.http.post(`${this.url}/create`, {...user} ).subscribe( (res: any) => {
-      if( !res.error ) {
+  createUser(user: User): void {
+    this.http.post(`${this.url}/create`, user ).subscribe(
+      (res: any) => {
         this.setAllUsers();
-        this.rootAppService.setAppMessage(`User successfully created at ${new Date().toLocaleDateString()} `);
-      } else {
-        this.rootAppService.setAppMessage('Error during user creation')
+        this.rootAppService.setAppMessage(
+          `User successfully created at ${new Date().toLocaleTimeString()}`
+        );
+      },
+      (err: any) => {
+        console.log('userService createUser error: ', err.error.message)
+        this.rootAppService.setAppMessage(err.error.message);
       }
-
-    } )
+    )
   }
 }
