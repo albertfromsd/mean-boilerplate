@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './shared/services/user.service';
+import { RootAppService } from './shared/services/root-app.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,19 @@ import { UserService } from './shared/services/user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'MEAN Boiler Plate';
-  constructor( public userService: UserService ) {}
+  rootTitle: string = 'MEAN Boiler Plate';
+  message: string = '';
+
+  constructor(
+    private userService: UserService,
+    private rootAppService: RootAppService
+  ) {}
 
   ngOnInit(): void {
-      this.userService.getAllUsers();
+      this.userService.setAllUsers();
+
+      this.rootAppService.getAppMessage().subscribe( (res: string) => {
+        this.message = res;
+      } )
   }
 }
-//
-//

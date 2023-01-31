@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
     },
     password: { 
         type: String,
-        required: [true, 'Password is required to register user'],
+        required: [false, 'Password is required to register user'],
     },
     reference_id: {
         type: objectID, 

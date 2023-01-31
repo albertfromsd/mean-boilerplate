@@ -33,7 +33,23 @@ async function userGetAll( req, res ) {
 }
 
 async function userRegister( req, res ) {
+    console.log('server userRegister', req.body)
+    try {
+        const { username, firstname, lastname, email } = req.body;
+        const newUser = await User.create({
+            username, firstname, lastname, email
+        });
+        if( !newUser ) throw new Error(400);
+        await newUser.save();
 
+        return res.status(200).json(newUser);
+    } catch(error) {
+        if( error.message === String('400') ) {
+            return res.status(400),json({message: 'Bad Request', error});
+        } else {
+            return res.status(500).json({message: 'Server Error', error});
+        }
+    }
 }
 
 async function userLogin( req, res ) {

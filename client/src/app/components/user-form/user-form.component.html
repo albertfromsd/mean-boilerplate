@@ -1,0 +1,22 @@
+
+<form [formGroup]="userForm" id="user-form">
+  <fieldset>
+    <legend>Create new user below: </legend>
+    <input
+      formControlName="username"
+      placeholder="Enter username here" >
+    <input
+      formControlName="firstname"
+      placeholder="Enter first name here" >
+    <input
+      formControlName="lastname"
+      placeholder="Enter last name here" >
+    <input
+      formControlName="email"
+      placeholder="Enter e-mail here" >
+  </fieldset>
+  <div class="flex-row">
+    <button (click)="submit()">Submit</button>
+    <button (click)="clear()">Clear</button>
+  </div>
+</form>
