@@ -1,17 +1,25 @@
+// [ Native Modules ]
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
+// [ NgRx ]
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { userReducer } from './store/user/user.reducer';
+import { appReducer } from './store/app/app.reducer';
 
+// [ Components/Views ]
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './views/home/home.component';
-import { userReducer } from './store/user/user.reducer';
-import { UserTableComponent } from './views/user-table/user-table.component';
+import { UserAppComponent } from './views/user-app/user-app.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,10 @@ import { UserTableComponent } from './views/user-table/user-table.component';
     NavbarComponent,
     TableComponent,
     HomeComponent,
-    UserTableComponent
+    UserAppComponent,
+    SearchbarComponent,
+    FooterComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +39,8 @@ import { UserTableComponent } from './views/user-table/user-table.component';
     ReactiveFormsModule,
     FormsModule,
     StoreModule.forRoot({
-      user: userReducer
+      user: userReducer,
+      app: appReducer
     }),
     StoreDevtoolsModule.instrument({
       name: 'MEAN Boiler Plate',

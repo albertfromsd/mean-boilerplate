@@ -1,0 +1,18 @@
+#user-form {
+  width: 50vw;
+
+  margin: 0 auto;
+  input {
+    margin: 0 .3rem;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row;
+}

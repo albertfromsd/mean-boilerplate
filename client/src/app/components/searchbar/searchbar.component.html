@@ -1,0 +1,21 @@
+<div id="popup-trigger" (mouseenter)="enter()" (mouseleave)="leave()"> <p>?</p> </div>
+<p id="message-popup"
+  [ngClass]="isMouseOver
+    ? 'message-popup'
+    : 'hidden' "
+>Pop up!</p>
+<p id="message-header"
+  [ngClass]="testInputValue.length
+    ? null
+    : 'hidden' "
+>{{this.testInputValue}}</p>
+
+<div id="searchbar" >
+  <input
+    [(ngModel)]="searchInput"
+    (ngModelChange)="updateInput()"
+    placeholder="Search..."
+  >
+  <button (click)="updateInput()" class="primary">Input Test</button>
+  <button (click)="clear()" class="warning">Clear</button>
+</div>
