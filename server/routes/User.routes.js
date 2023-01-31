@@ -6,4 +6,6 @@ module.exports = function(app) {
 
     app.post('/users/create', ctrl.user.userRegister);
     app.post('/login', [authenticateUser], ctrl.user.userLogin);
+
+    app.delete('/users/delete/:_id', ctrl.user.userDelete);
 }

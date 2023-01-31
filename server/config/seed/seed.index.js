@@ -18,13 +18,14 @@ async function run() {
         if( await User.collection ) await User.collection.drop();
         
         // [ USERS ]
-        const userCount = 10, adminCount = 3;
+        const userCount = 10, adminCount = 1;
         const userList = await generateUsers(userCount, adminCount);
         for( let i=0; i<userList.length; i++ ) {
             const user = userList[i];
             const newUser = await User.create({ ...user });
             await newUser.save();
         }
+
 
         console.log( `Seed completed` );
     } catch(error) {

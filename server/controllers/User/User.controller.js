@@ -71,6 +71,26 @@ async function userLogout( req, res ) {
 
 }
 
+async function userDelete( req, res ) {
+    try {
+        const { _id } = req.params;
+        console.log({_id});
+        await User.findOneAndDelete({_id}, (err, user) => {
+            if( err ) {
+                return res.status(400).json({message: "Account not found"});
+            } else {
+                console.log('server userDelete: ', user)
+                return res.status(200).json({message: "User successfully deleted", user});
+            }
+        } );
+        
+
+
+    } catch(error) {
+
+    }
+}
+
 // consistent exports
 module.exports = {
     userGet,
@@ -78,5 +98,6 @@ module.exports = {
     userRegister,
     userLogin,
     userEdit,
+    userDelete,
     userLogout
 }

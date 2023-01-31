@@ -20,4 +20,19 @@ table {
     border: 1px solid black;
     padding: .15rem .5rem
   }
+  button {
+    border-radius: 5%;
+    font-weight: 500;
+    &.btn-warning {
+      border: 1px solid red;
+      background-color: rgb(254, 48, 48);
+      color: white;
+
+      &:hover {
+        color: rgb(254, 48, 48);
+        background-color: rgb(254, 171, 171);
+        border: 1px solid red;
+      }
+    }
+  }
 }

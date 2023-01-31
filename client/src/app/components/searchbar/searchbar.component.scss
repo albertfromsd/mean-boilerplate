@@ -62,7 +62,7 @@
     width: 20%;
     border-radius: 5%;
 
-    &.primary {
+    &.btn-primary {
       border: 1px solid blue;
       &:hover {
         background-color: #7cc1f1;
@@ -71,7 +71,7 @@
       };
     }
 
-    &.warning {
+    &.btn-warning {
       border: 1px solid red;
       &:hover {
         color: white;
