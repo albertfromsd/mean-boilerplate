@@ -1,3 +1,4 @@
 module.exports.routes = {
-    user: require('./User.routes')
+    User: require('./User.routes')
+    
 }

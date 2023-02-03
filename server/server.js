@@ -8,9 +8,6 @@ require('dotenv').config();
 app.use('/', express.json()); // parse requests with JSON payload/body
 app.use(express.urlencoded({ extended: true }));
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-
 // CORS
 const CLIENT = process.env.CLIENT_PORT || 4200;
 const cors = require('cors');
@@ -20,7 +17,7 @@ app.use(cors({
 }));
 
 // [ ROUTES ]
-routes.user(app);
+routes.User(app);
 app.all('*', (req, res) => {
     res.status(404).json({error: 'resource not found'});
 });
