@@ -1,11 +1,11 @@
-const { controller: ctrl } = require('../controllers/index.controller');
+const { Ctrl } = require('../controllers/index.controller');
 const { authenticateUser } = require('../utils/index.utils');
 
 module.exports = function(app) {
-    app.get('/users/all', ctrl.user.userGetAll);
+    app.get('/users/all', Ctrl.User.userGetAll);
 
-    app.post('/users/create', ctrl.user.userRegister);
-    app.post('/login', [authenticateUser], ctrl.user.userLogin);
+    app.post('/users/create', Ctrl.User.userRegister);
+    app.post('/login', [authenticateUser], Ctrl.User.userLogin);
 
-    app.delete('/users/delete/:_id', ctrl.user.userDelete);
+    app.delete('/users/delete/:_id', Ctrl.User.userDelete);
 }

@@ -1,7 +1,7 @@
 // [ CONTROLLERS ]
-const user = require('./User/User.controller');
+const User = require('./User/User.controller');
 
 // [ EXPORTS ] 
-module.exports.controller = {
-    user
+module.exports.Ctrl = {
+    User
 }
