@@ -20,6 +20,10 @@ import { UserAppComponent } from './views/user-app/user-app.component';
 import { SearchbarComponent } from './components/global/searchbar/searchbar.component';
 import { FooterComponent } from './components/global/footer/footer.component';
 import { UserFormComponent } from './components/user-app/user-form/user-form.component';
+import { TodolistComponentApp } from './views/todolist-app/todolist-app.component';
+import { AlgoVisualViewComponent } from './views/algo-visual-view/algo-visual-view.component';
+import { CountIslandsComponent } from './components/algo-visual-app/count-islands/count-islands.component';
+import { countIslandsReducer } from './store/algo-visual/count-islands/count-islands.reducer';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { UserFormComponent } from './components/user-app/user-form/user-form.com
     UserAppComponent,
     SearchbarComponent,
     FooterComponent,
-    UserFormComponent
+    UserFormComponent,
+    TodolistComponentApp,
+    AlgoVisualViewComponent,
+    CountIslandsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,8 @@ import { UserFormComponent } from './components/user-app/user-form/user-form.com
     FormsModule,
     StoreModule.forRoot({
       user: userReducer,
-      app: appReducer
+      app: appReducer,
+      countIslands: countIslandsReducer
     }),
     StoreDevtoolsModule.instrument({
       name: 'MEAN Boiler Plate',

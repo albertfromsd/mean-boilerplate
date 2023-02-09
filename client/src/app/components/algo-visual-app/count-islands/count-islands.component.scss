@@ -1,0 +1,48 @@
+h2 {
+  text-align: center;
+}
+#boardForm {
+  margin: .5rem auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+#islands-table {
+  margin: 0 auto;
+
+  td {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+  }
+
+  .land {
+    background-color: rgb(112, 255, 112);
+    border: 1px solid rgb(126, 255, 126);
+  }
+
+  .water {
+    background-color: rgb(220, 237, 255);
+    border: 1px solid rgb(134, 193, 255);
+  }
+  .visited {
+    border: 1px solid red;
+  }
+}
+
+.button-solve {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: .3rem auto;
+
+  width: 20rem;
+
+  button {
+    margin: 0 .5rem;
+  }
+}
+.output {
+  text-align: center;
+}
+
