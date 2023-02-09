@@ -21,6 +21,9 @@ import { SearchbarComponent } from './components/global/searchbar/searchbar.comp
 import { FooterComponent } from './components/global/footer/footer.component';
 import { UserFormComponent } from './components/user-app/user-form/user-form.component';
 import { TodolistComponentApp } from './views/todolist-app/todolist-app.component';
+import { AlgoVisualViewComponent } from './views/algo-visual-view/algo-visual-view.component';
+import { CountIslandsComponent } from './components/algo-visual-app/count-islands/count-islands.component';
+import { countIslandsReducer } from './store/algo-visual/count-islands/count-islands.reducer';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { TodolistComponentApp } from './views/todolist-app/todolist-app.componen
     SearchbarComponent,
     FooterComponent,
     UserFormComponent,
-    TodolistComponentApp
+    TodolistComponentApp,
+    AlgoVisualViewComponent,
+    CountIslandsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { TodolistComponentApp } from './views/todolist-app/todolist-app.componen
     FormsModule,
     StoreModule.forRoot({
       user: userReducer,
-      app: appReducer
+      app: appReducer,
+      countIslands: countIslandsReducer
     }),
     StoreDevtoolsModule.instrument({
       name: 'MEAN Boiler Plate',
