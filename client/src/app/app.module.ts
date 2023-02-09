@@ -20,6 +20,7 @@ import { UserAppComponent } from './views/user-app/user-app.component';
 import { SearchbarComponent } from './components/global/searchbar/searchbar.component';
 import { FooterComponent } from './components/global/footer/footer.component';
 import { UserFormComponent } from './components/user-app/user-form/user-form.component';
+import { TodolistComponentApp } from './views/todolist-app/todolist-app.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserFormComponent } from './components/user-app/user-form/user-form.com
     UserAppComponent,
     SearchbarComponent,
     FooterComponent,
-    UserFormComponent
+    UserFormComponent,
+    TodolistComponentApp
   ],
   imports: [
     BrowserModule,

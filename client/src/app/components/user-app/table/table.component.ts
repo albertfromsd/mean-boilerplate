@@ -15,7 +15,7 @@ export class TableComponent implements OnInit, OnChanges{
 
   ngOnInit(): void {
     if( this.tableData.length && typeof this.tableData[0] === 'object' ) {
-      this.tableHeaders = Object.keys(this.tableData[0]);
+      this.tableHeaders = Object.keys(this.tableData[0]).filter( header => header !== '_id');
     }
   }
 
